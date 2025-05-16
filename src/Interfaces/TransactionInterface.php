@@ -18,7 +18,6 @@ interface TransactionInterface
     public function getAmount(): float;
     public function getSenderName(): string;
     public function getRecipientName(): string;
-    public function getRecipientLastName(): string;
     public function getRecipientBankCode(): string;
     public function getRecipientBankAccount(): string;
 }
