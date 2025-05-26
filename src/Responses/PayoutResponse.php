@@ -25,6 +25,9 @@ class PayoutResponse extends JsonResponse
     public string $responseMessage;
 }
 
+/**
+ * @author Ivan Stasiuk <ivan@stasi.uk>
+ */
 class Transaction extends DataTransferObject
 {
     #[MapFrom('Reference')]
