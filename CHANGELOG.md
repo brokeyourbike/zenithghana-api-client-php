@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.2.2](https://www.github.com/brokeyourbike/zenithghana-api-client-php/compare/v0.2.1...v0.2.2) (2025-05-26)
+
+
+### Bug Fixes
+
+* remove trait ([27a107d](https://www.github.com/brokeyourbike/zenithghana-api-client-php/commit/27a107d520dd1991ee5bb6d7da78fa09248f2015))
+* url ([f06d351](https://www.github.com/brokeyourbike/zenithghana-api-client-php/commit/f06d351fb57af80cdb787895e4e7175d68d06a68))
+
 ### [0.2.1](https://www.github.com/brokeyourbike/zenithghana-api-client-php/compare/v0.2.0...v0.2.1) (2025-05-26)
 
 
