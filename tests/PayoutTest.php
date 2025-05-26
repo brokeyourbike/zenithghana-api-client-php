@@ -6,7 +6,6 @@
 
 namespace BrokeYourBike\ZenithGhana\Tests;
 
-use Psr\SimpleCache\CacheInterface;
 use Psr\Http\Message\ResponseInterface;
 use BrokeYourBike\ZenithGhana\Responses\PayoutResponse;
 use BrokeYourBike\ZenithGhana\Interfaces\TransactionInterface;

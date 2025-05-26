@@ -69,7 +69,7 @@ class Client implements HttpClientInterface
 
         $response = $this->httpClient->request(
             HttpMethodEnum::POST->value,
-            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), '/ZTransfer/SendMoney'),
+            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), '/v2/ZTransfer/SendMoney'),
             $options
         );
 
@@ -93,7 +93,7 @@ class Client implements HttpClientInterface
 
         $response = $this->httpClient->request(
             HttpMethodEnum::POST->value,
-            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), "/ZTransfer/GetTransactionStatus"),
+            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), "/v2/ZTransfer/GetTransactionStatus"),
             $options
         );
 

@@ -13,6 +13,10 @@ use BrokeYourBike\HttpClient\HttpClientTrait;
 use BrokeYourBike\HttpClient\HttpClientInterface;
 use BrokeYourBike\HasSourceModel\HasSourceModelTrait;
 
+class TestClient {
+    use ResolveUriTrait;
+}
+
 /**
  * @author Ivan Stasiuk <ivan@stasi.uk>
  */
@@ -55,5 +59,13 @@ class ClientTest extends TestCase
         $usedTraits = class_uses(Client::class);
 
         $this->assertArrayHasKey(HasSourceModelTrait::class, $usedTraits);
+    }
+
+    /** @test */
+    public function it_can_resolve_url(): void
+    {
+        $client = new TestClient();
+        $this->assertSame('https://example.com/v2/ZTransfer/GetTransactionStatus', (string) $client->resolveUriFor(rtrim('https://example.com'), '/v2/ZTransfer/GetTransactionStatus'));
+        $this->assertSame('https://example.com/v2/ZTransfer/GetTransactionStatus', (string) $client->resolveUriFor(rtrim('https://example.com/'), '/v2/ZTransfer/GetTransactionStatus'));
     }
 }
