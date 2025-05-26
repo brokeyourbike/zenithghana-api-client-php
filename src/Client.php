@@ -10,7 +10,6 @@ use GuzzleHttp\ClientInterface;
 use BrokeYourBike\ZenithGhana\Responses\PayoutResponse;
 use BrokeYourBike\ZenithGhana\Interfaces\TransactionInterface;
 use BrokeYourBike\ZenithGhana\Interfaces\ConfigInterface;
-use BrokeYourBike\ResolveUri\ResolveUriTrait;
 use BrokeYourBike\HttpEnums\HttpMethodEnum;
 use BrokeYourBike\HttpClient\HttpClientTrait;
 use BrokeYourBike\HttpClient\HttpClientInterface;
@@ -23,7 +22,6 @@ use BrokeYourBike\HasSourceModel\HasSourceModelTrait;
 class Client implements HttpClientInterface
 {
     use HttpClientTrait;
-    use ResolveUriTrait;
     use HasSourceModelTrait;
 
     private ConfigInterface $config;
@@ -69,7 +67,7 @@ class Client implements HttpClientInterface
 
         $response = $this->httpClient->request(
             HttpMethodEnum::POST->value,
-            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), '/v2/ZTransfer/SendMoney'),
+            rtrim($this->config->getUrl(), '/') . '/v2/ZTransfer/SendMoney',
             $options
         );
 
@@ -93,7 +91,7 @@ class Client implements HttpClientInterface
 
         $response = $this->httpClient->request(
             HttpMethodEnum::POST->value,
-            (string) $this->resolveUriFor(rtrim($this->config->getUrl(), '/'), "/v2/ZTransfer/GetTransactionStatus"),
+            rtrim($this->config->getUrl(), '/') . "/v2/ZTransfer/GetTransactionStatus",
             $options
         );
 
