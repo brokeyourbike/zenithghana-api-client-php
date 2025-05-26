@@ -24,5 +24,6 @@ enum TransactionStatusEnum: string
     case TRANSACTIONS_NOT_FOUND = '017';
     case GLOBAL_DAILY_LIMIT_REACHED = '018';
     case INSUFFICIENT_FUND = '019';
+    case PENDING = '029';
     case AWAITING_GHIPPS_RESPONSE = '920';
 }

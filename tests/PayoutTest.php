@@ -35,22 +35,10 @@ class PayoutTest extends TestCase
         $mockedResponse->method('getStatusCode')->willReturn(200);
         $mockedResponse->method('getBody')
             ->willReturn('{
-                "Transaction": {
-                    "TransferChannel": "BANK",
-                    "Reference": "TZ12345",
-                    "FromAccount": "1234",
-                    "TimeStamp": "2001-01-01T12:36:39.556",
-                    "DestAccount": "4567",
-                    "Amount": 1,
-                    "DestBankSortCode": "120100",
-                    "GIPResponseCode": "",
-                    "GIPSessionId": "",
-                    "StatusCode": "015",
-                    "ResponseMessage": "System Defect"
-                },
-                "ResponseCode": "000",
-                "ResponseMessage": "Success"
-            }');
+                    "Reference": "0123456789",
+                    "ResponseCode": "007",
+                    "ResponseMessage": "Invalid from account"
+                }');
 
         /** @var \Mockery\MockInterface $mockedClient */
         $mockedClient = \Mockery::mock(\GuzzleHttp\Client::class);
@@ -64,7 +52,6 @@ class PayoutTest extends TestCase
 
         $requestResult = $api->payout($transaction);
         $this->assertInstanceOf(PayoutResponse::class, $requestResult);
-        $this->assertEquals(TransactionStatusEnum::SUCCESS->value, $requestResult->responseCode);
-        $this->assertEquals(TransactionStatusEnum::TRANSFER_FAILED->value, $requestResult->transaction->statusCode);
+        $this->assertEquals(TransactionStatusEnum::REQUIRED_FIELDS_VALIDATION_ERRORS->value, $requestResult->responseCode);
     }
 }
