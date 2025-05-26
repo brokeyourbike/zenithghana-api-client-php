@@ -8,7 +8,6 @@ namespace BrokeYourBike\ZenithGhana\Tests;
 
 use BrokeYourBike\ZenithGhana\Interfaces\ConfigInterface;
 use BrokeYourBike\ZenithGhana\Client;
-use BrokeYourBike\ResolveUri\ResolveUriTrait;
 use BrokeYourBike\HttpClient\HttpClientTrait;
 use BrokeYourBike\HttpClient\HttpClientInterface;
 use BrokeYourBike\HasSourceModel\HasSourceModelTrait;
@@ -39,14 +38,6 @@ class ClientTest extends TestCase
         $usedTraits = class_uses(Client::class);
 
         $this->assertArrayHasKey(HttpClientTrait::class, $usedTraits);
-    }
-
-    /** @test */
-    public function it_uses_resolve_uri_trait(): void
-    {
-        $usedTraits = class_uses(Client::class);
-
-        $this->assertArrayHasKey(ResolveUriTrait::class, $usedTraits);
     }
 
     /** @test */
