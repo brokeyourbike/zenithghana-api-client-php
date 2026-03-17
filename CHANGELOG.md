@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/brokeyourbike/zenithghana-api-client-php/compare/v0.2.3...v0.3.0) (2026-03-17)
+
+
+### Features
+
+* source ([10b3127](https://www.github.com/brokeyourbike/zenithghana-api-client-php/commit/10b3127fbd9f27c68865eecc43d530d0dd95da24))
+
 ### [0.2.3](https://www.github.com/brokeyourbike/zenithghana-api-client-php/compare/v0.2.2...v0.2.3) (2025-05-26)
 
 
